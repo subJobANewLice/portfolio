@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>innerHTMLメソッド</title>
+  <script>
+   showImage = () => {
+    let htmlstr = "";
+    for(let i=1; i<=3; i++) {
+     htmlstr += "<img src='images/picture" + i + ".jpg'>";
+    }
+    document.getElementById("imageArea").innerHTML = htmlstr;
+   };
+  </script>
+ </head>
+ <body>
+  <button id="btn" onclick="showImage();">読み込み</button>
+  <div id="imageArea">ここに画像が読み込まれます。</div>
+ </body>
+</html>

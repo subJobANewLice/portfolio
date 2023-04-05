@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>表示エリア変更</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+   let showIppan = () => {
+    document.getElementById("ippan_area").className = "active";
+    document.getElementById("hojin_area").className = "passive";
+   };
+
+   let showHojin = () => {
+    document.getElementById("ippan_area").className = "passive";
+    document.getElementById("hojin_area").className = "active";
+   };
+  </script>
+ </head>
+ <body>
+  <input type="radio" name="target" value="i" onchange="showIppan();" checked>一般用
+  <input type="radio" name="target" value="h" onchange="showHojin();">法人用
+  <ul id="ippan_area" class="active">
+   <li>氏名<input type="text" name="name"></li>
+   <li>住所<input type="text" name="address"></li>
+   <li>電話番号<input type="text" name="tel"></li>
+  </ul>
+  <ul id="hojin_area" class="passive">
+   <li>会社名<input type="text" name="company"></li>
+   <li>部署名<input type="text" name="busho"></li>
+   <li>担当者名<input type="text" name="tanto"></li>
+   <li>氏名<input type="text" name="address"></li>
+   <li>電話番号<input type="text" name="tel"></li>
+   <li>内線番号<input type="text" name="naisen"></li>
+  </ul>
+ </body>
+</html>

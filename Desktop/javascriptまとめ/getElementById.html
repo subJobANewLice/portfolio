@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+  <meta charset="utf-8">
+  <title>getElementByIdメソッド</title>
+  <script>
+   let setValue = () => {
+    let elm = document.getElementById("txl");
+    elm.value = "Hello!";
+   };
+  </script>
+ </head>
+ <body>
+  <input id="txl" type="text">
+  <input id="tx2" type="text">
+  <input id="tx3" type="text">
+  <button onclick="setValue();">クリック</button>
+ </body>
+</html>
