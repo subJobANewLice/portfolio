@@ -1,0 +1,30 @@
+<script>
+ let str = 'にわにはにわにわとりがいる';
+
+ console.log(str.indexOf('にわ'));
+ console.log(str.lastIndexOf('にわ'));
+ console.log(str.indexOf('にど'));
+ console.log(str.indexOf('にわ',5));
+ console.log(str.lastIndexOf('とり',7));
+ console.log(str.indexOf('',5));
+ console.log(str.indexOf('とり',-5));
+ console.log(str.lastIndexOf('にわ',-5));
+ console.log(str.indexOf('にわ',15));
+ console.log(str.lastIndexOf('にわ',15));
+
+ str = 'Hello, World!!';
+ console.log(str.toLowerCase().indexOf('world'.toLowerCase()));
+
+ str = 'にわにはにわにわとりがいる';
+ let count = 0;
+ let keywd ="にわ";
+ let pos = str.indexOf(keywd);
+
+ while(pos !== -1) {
+  count++;
+
+  pos = str.indexOf(keywd, pos + keywd.length);
+ }
+ console.log(`${count}件がヒットしました。`);
+</script>
+
