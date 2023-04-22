@@ -1,0 +1,39 @@
+<%= form_with model: rating, method: :post, url: public_ratings_path do |f| %>
+  <div class="form-group">
+    <%= f.label "名前" %>
+    <%= f.text_field :name, class:'form-control', placeholder: '1~100文字で入力してください' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "評価所感" %>
+    <%= f.text_area :introduction, rows:'5', class:'form-control', placeholder: '1~10000文字で入力してください' %>
+  </div>
+  <div class="form-group">
+    <%= f.label "タグ" %>
+    <%= f.text_field :tag_name, class: 'form-control rating_tag_name' %>
+  </div>
+  <% if rating.id === nil %>
+  <div class="form-group" id="star">
+    <%= f.label "レビュー" %>
+    <%= f.hidden_field :rate, id: :review_star, class:'form-control' %>
+  </div>
+<div id="post_raty"></div>
+    <script>
+      $(document).on('turbolinks:load', function() {
+      let raty_elem = document.querySelector('#post_raty');
+      raty_elem.innerHTML = ""
+      let option = {
+          starOn: "<%= asset_path('star-on.png') %>",
+          starOff: "<%= asset_path('star-off.png') %>",
+          starHalf: "<%= asset_path('star-half.png') %>",
+          scoreName: 'rating[rate]',
+        };
+      raty(raty_elem,option);
+     });
+    </script>
+  <% else %>
+    <%= render "public/ratings/static_rate", rating: rating %>
+  <% end %>
+  <div class="form-group">
+    <%= f.submit "レビューする" ,class: 'btn btn-success' %>
+  </div>
+<% end %>

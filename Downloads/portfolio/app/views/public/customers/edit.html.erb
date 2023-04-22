@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="errors">
+        <%= render "layouts/errors", obj: @customer %>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group">
+            <%= form_with model: @customer, url: public_customer_path(@customer), method: :patch do |f| %>
+                <%= f.label '名前' %>
+                <%= f.text_field :name, class:'form-control w-50', placeholder: '1~100文字で入力してください' %>
+
+                <%= f.label '自己紹介' %>
+                <%= f.text_area :introduce, rows:'5' ,class:'form-control w-100', placeholder: '1~10000文字で入力してください' %>
+
+                <%= f.label '画像' %><br>
+                <%= f.file_field :profile_image, accept: "image/*" %><br>
+                <br>
+                <%= f.submit '更新', class:'btn btn-success' %>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
