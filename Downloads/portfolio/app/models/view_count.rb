@@ -1,2 +1,0 @@
-class ViewCount < ApplicationRecord
-end
