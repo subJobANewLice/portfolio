@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SapphireRooms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header style="position: sticky; top: 0; z-index: 5;">
+      <%= render 'layouts/header'%>
+    </header>
+    <main>
+      <% if customer_signed_in? || admin_signed_in? %>
+      <i id="notice" style="font-size: 20px; font-family: Georgia, serif;"><%= notice %></i>
+      <div class="d-flex justify-content-center mb-2">
+        <div class="mr-3 search"><%= render 'public/searches/form' %></div>
+        <div class="mr-3 search"><%= render 'public/searches/tag_form' %></div>
+      </div>
+      <% end %>
+      <%= yield %>
+    </main>
+    <footer>
+      <%= render 'layouts/footer'%>
+    </footer>
+  </body>
+</html>

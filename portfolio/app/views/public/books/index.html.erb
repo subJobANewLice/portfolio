@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="errors">
+        <%= render "layouts/errors", obj: @book %>
+    </div>
+    <div class="row">
+        <h1>ルーム作成画面</h1>
+    </div>
+    <div class="row">
+        <p>ここはルーム作成部屋です。</p>
+        <p>自分の好きな話題について語り合えるルームを作りましょう！</p>
+    </div>
+    <div class="row">
+        <div class="col-sm-10">
+        <h1 class="text-warning"><i class="fas fa-exclamation-triangle"></i><strong>注意事項</strong></h1>
+        <br>
+        <ul>
+            <h3><li>中傷発言はお止めください</li></h3><br>
+            <h3><li>公序良俗に反する発言は厳禁です</li></h3><br>
+            <h3><li>適切なモラルを遵守したルーム作成をお願い致します</li></h3>
+        </ul>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            <h1>ルーム作成</h1>
+        </div>
+    </div>
+    <% if !admin_signed_in? && @customer.name != "guestuser" %>
+        <div class="row">
+            <div class="col-sm-12">
+                <%= render 'public/books/form', book: @book %>
+            </div>
+        </div>
+    <% elsif !admin_signed_in? && @customer.name == "guestuser" %>
+        <h3 class="text-warning">ゲストユーザーなのでルーム作成機能は使用できません。ログインしてください。</h3>
+    <% end %>
+    <br>
+    <h1>ルーム一覧</h1>
+    <%= render 'public/books/index', books: @books %>
+</div>
